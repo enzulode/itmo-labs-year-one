@@ -10,13 +10,13 @@ public class LabTwo
 	{
 
 		Battle b = new Battle();
-		b.addFoe(new MespritPokemon("Дядя Ваня", 1));
-		b.addFoe(new ChandelurePokemon("Ебаная лампа", 1));
-		b.addFoe(new SpritzeePokemon("Писюн", 1));
+		b.addFoe(new MespritPokemon("Один", 1));
+		b.addFoe(new ChandelurePokemon("Два", 1));
+		b.addFoe(new SpritzeePokemon("Три", 1));
 
-		b.addAlly(new SpritzeePokemon("Крокодилиус", 1));
-		b.addAlly(new AromatissePokemon("Аромат нахуй", 1));
-		b.addAlly(new LampentPokemon("Лампа поменьше", 1));
+		b.addAlly(new SpritzeePokemon("Четыре", 1));
+		b.addAlly(new AromatissePokemon("Пять", 1));
+		b.addAlly(new LampentPokemon("Шесть", 1));
 
 		b.go();
 
