@@ -3,9 +3,6 @@ import re
 class Lab3:
     
     def __init__(self):
-        # self.pattern3_0 = re.compile(r"(?:\w)(-)(?:\w)")
-        # self.pattern3_0 = re.compile(r"(?:\w)(-)(?:\w)")
-    
         self.pattern1 = re.compile(r"(\[)(\<\{)(\|)")
         self.counter1 = 0
 
