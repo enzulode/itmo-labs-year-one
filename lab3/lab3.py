@@ -3,6 +3,9 @@ import re
 class Lab3:
     
     def __init__(self):
+        # self.pattern3_0 = re.compile(r"(?:\w)(-)(?:\w)")
+        # self.pattern3_0 = re.compile(r"(?:\w)(-)(?:\w)")
+    
         self.pattern1 = re.compile(r"(\[)(\<\{)(\|)")
         self.counter1 = 0
 
@@ -34,7 +37,8 @@ class Lab3:
     def t2(self):
         print("Task 2")
         testsTwo = [
-        "Кривошеее существо гуляет по парку",
+        "Кривошеее существо гуля-ет по парку",
+        "Кривошеее существо гуляет по-парку",
         "Бык тупогуб тупогубенький бычок у быка губа тупа",
         "От топота копыт пыль по полю летит",
         "Толком толковать да без толку расперетолковывать",
@@ -68,10 +72,10 @@ class Lab3:
     def t3(self):
         print("Task 3")
         testsThree = [
-            "Классное слово – обороноспособность, которое должно идти после слов: трава и молоко.",
-            "Грабли – грести, метла – мести, весла – везти, полозья – ползти.",
-            "Цапля чахла, цапля сохла, цапля сдохла.",
-            "Рапортовал, да не дорапортовал, а стал дорапортовывать, зарапортовался.",
+            "Кла-ссное сло-во – обороносп-особность, которое дол-жно идти после слов: трава и молоко.",
+            "Грабли – грести, метла – мести, весла – везти, полозья – ползти."
+            "Цапля чахла, цапля сохла, ца-пля сдохла.",
+            "Ропортов-oл, да не дорапортовал, а стал дорапортовывать, зарапортовался.",
             "Около кола колокола, около ворот коловорот."
         ]
 
@@ -79,21 +83,25 @@ class Lab3:
         print("Results: ")
 
         for test in testsThree:
-            k = re.sub(re.compile(r"[\W]"), " ", test)
-            while "  " in k:
-                k = k.replace("  ", " ")
-
-            words = k.split()
-
+            ww = test.split()
             result = []
-            for word in words:
+
+            new_words = []
+            for w in ww:
+                if (re.match(r"\w+[\W]\w+", w)):
+                    new_words.append(w)
+                else:
+                    new_words.append(re.sub(r"[\W]", "", w))
+            
+            while ("" in new_words) or (" " in new_words):
+                new_words.remove("")
+
+            for word in new_words:
                 a = set(self.pattern3_2.findall(word))
                 
-                if len(list(a)) == 1:
+                if (len(list(a)) == 1):
                     result.append(word)
-
-
-            # print(self.lenSort(result))
+            
             self.lenSort(result)
 
         print("---------------------------------------------")
