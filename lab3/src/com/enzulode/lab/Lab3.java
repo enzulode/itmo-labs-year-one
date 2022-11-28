@@ -2,7 +2,6 @@ package com.enzulode.lab;
 
 import com.enzulode.lab.effects.SideEffects;
 import com.enzulode.lab.entities.AbstractEntity;
-import com.enzulode.lab.entities.EntityInterface;
 import com.enzulode.lab.entities.Mumitroll;
 import com.enzulode.lab.entities.Snusmumric;
 import com.enzulode.lab.places.AbstractPlace;
@@ -13,6 +12,15 @@ import com.enzulode.lab.utils.ScriptInterface;
 
 public class Lab3
 {
+
+	/*
+
+	Снусмумрик сокрушенно покачал головой. Идя лесом, Муми-тролль все теснее жался к Снусмумрику.
+	С обеих сторон тропинки слышались шорохи и шелест крадущихся шагов, веяло жутью.
+	Временами из-за стволов деревьев выглядывали маленькие светящиеся глаза, временами кто-то окликал их
+	с земли или из древесных кущ.
+
+	 */
 	
 	public Lab3()
 	{
@@ -27,16 +35,16 @@ public class Lab3
 		snusmumric.performActions();
 		mumitroll.performActions();
 
-//		forest.addEntity(snusmumric);
-//		forest.addEntity(mumitroll);
-//
-//		ScriptInterface roadEffectsScript = (new EffectScript()).addEffect(SideEffects.STEPS, SideEffects.SPOOKINESS);
-//		ScriptInterface forestEffectsScript = (new EffectScript()).addEffect(SideEffects.EYES, SideEffects.CALLED);
-//
-//		road.addScript(roadEffectsScript);
-//		forest.addScript(forestEffectsScript);
-//		forest.addSubplace(road);
-//		forest.run();
+		forest.addEntity(snusmumric);
+		forest.addEntity(mumitroll);
+
+		ScriptInterface roadEffectsScript = (new EffectScript()).addEffect(SideEffects.STEPS, SideEffects.SPOOKINESS);
+		ScriptInterface forestEffectsScript = (new EffectScript()).addEffect(SideEffects.EYES, SideEffects.CALLED);
+
+		road.addScript(roadEffectsScript);
+		forest.addScript(forestEffectsScript);
+		forest.addSubplace(road);
+		forest.run();
 	}
 
 

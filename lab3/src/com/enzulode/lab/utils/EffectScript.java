@@ -15,7 +15,7 @@ public class EffectScript implements ScriptInterface
 	}
 
 	@Override
-	public ScriptInterface addNewAction(String action)
+	public ScriptInterface addAction(String action)
 	{
 		actions.add(action);
 		return this;
@@ -40,13 +40,13 @@ public class EffectScript implements ScriptInterface
 	}
 
 	@Override
-	public void run()
+	public String run()
 	{
 		StringBuilder sb = new StringBuilder();
 		for (String action : actions)
 			sb.append(action).append("\n");
 
-		System.out.print(sb);
+		return sb.toString();
 	}
 
 	@Override
