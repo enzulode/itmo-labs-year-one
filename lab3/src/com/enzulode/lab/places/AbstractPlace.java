@@ -1,6 +1,8 @@
 package com.enzulode.lab.places;
 
-import com.enzulode.lab.entities.EntityInterface;
+import com.enzulode.lab.entities.AbstractEntity;
+import com.enzulode.lab.utils.PlacePrinter;
+import com.enzulode.lab.utils.PrinterInterface;
 import com.enzulode.lab.utils.ScriptInterface;
 import java.util.LinkedList;
 import java.util.List;
@@ -9,35 +11,39 @@ import java.util.Objects;
 public abstract class AbstractPlace
 {
 
-	private String placeName;
-	private List<EntityInterface> entities;
+	private String name;
+	private List<AbstractEntity> entities;
 	private List<AbstractPlace> subplaces;
 	private ScriptInterface script;
 
+	protected PrinterInterface printer;
 
+	public AbstractPlace(String name)
 	{
-		placeName = "AbstractPlaceName";
+		this.name = name;
 		entities = new LinkedList<>();
 		subplaces = new LinkedList<>();
-	}
-	public AbstractPlace(String placeName)
-	{
-		this.placeName = placeName;
+		printer = new PlacePrinter(this);
 	}
 
-	public void setPlaceName(String placeName)
+	public void setName(String name)
 	{
-		this.placeName = placeName;
+		this.name = name;
 	}
 
-	public String getPlaceName()
+	public String getName()
 	{
-		return placeName;
+		return name;
 	}
 
-	public void addEntity(EntityInterface entity)
+	public void addEntity(AbstractEntity entity)
 	{
 		entities.add(entity);
+	}
+
+	public List<AbstractEntity> getEntities()
+	{
+		return entities;
 	}
 
 	public void addSubplace(AbstractPlace subplace)
@@ -45,7 +51,12 @@ public abstract class AbstractPlace
 		subplaces.add(subplace);
 	}
 
-	public void removeEntity(EntityInterface entity)
+	public List<AbstractPlace> getSubplaces()
+	{
+		return subplaces;
+	}
+
+	public void removeEntity(AbstractEntity entity)
 	{
 		entities.remove(entity);
 	}
@@ -58,13 +69,7 @@ public abstract class AbstractPlace
 	public void runScript()
 	{
 		if (script != null)
-			script.run();
-	}
-
-	public void runSubplacesScripts()
-	{
-		for (AbstractPlace subplace : subplaces)
-			subplace.runScript();
+			printer.print();
 	}
 
 	public void addScript(ScriptInterface script)
@@ -72,35 +77,39 @@ public abstract class AbstractPlace
 		this.script = script;
 	}
 
+	public ScriptInterface getScript()
+	{
+		return script;
+	}
+
 	public void removeScript()
 	{
 		script = null;
 	}
 
+	public abstract void runSubplacesScripts();
 	public abstract void run();
 
 	@Override
 	public String toString()
 	{
-		return "Место: " + placeName;
+		return "Место: " + name;
 	}
 
 	@Override
 	public int hashCode()
 	{
-		return (Objects.hashCode(this) | 47) + 5;
+		return Objects.hashCode(name)
+				+ Objects.hashCode(entities)
+				+ Objects.hashCode(subplaces)
+				+ Objects.hashCode(script);
 	}
 
 	@Override
 	public boolean equals(Object o)
 	{
 		if (o instanceof AbstractPlace ap)
-		{
-			return hashCode() == ap.hashCode()
-					&& placeName.equals(ap.placeName)
-					&& (entities.size() == ap.entities.size())
-					&& (subplaces.size() == ap.subplaces.size());
-		}
+			return hashCode() == ap.hashCode() && name.equals(ap.getName());
 
 		return false;
 	}

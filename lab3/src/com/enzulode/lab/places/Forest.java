@@ -11,29 +11,39 @@ public class Forest extends AbstractPlace
 	}
 
 	@Override
+	public void runSubplacesScripts()
+	{
+		for (AbstractPlace subplace : getSubplaces())
+			subplace.printer.print();
+	}
+
+	@Override
 	public void run()
 	{
 		runSubplacesScripts();
-		runScript();
+		printer.print();
 	}
 
 	@Override
 	public String toString()
 	{
-		return "Тип локации: лес, Название локации: " + getPlaceName();
+		return "Тип локации: лес, Название локации: " + getName();
 	}
 
 	@Override
 	public int hashCode()
 	{
-		return (Objects.hashCode(this) | 82) + 7;
+		return Objects.hashCode(getName())
+				+ Objects.hashCode(getEntities())
+				+ Objects.hashCode(getSubplaces())
+				+ Objects.hashCode(getScript());
 	}
 
 	@Override
 	public boolean equals(Object o)
 	{
-		if (o instanceof Forest forest)
-			return hashCode() == forest.hashCode() && (getPlaceName().equals(forest.getPlaceName()));
+		if (o instanceof Forest f)
+			return hashCode() == f.hashCode() && (getName().equals(f.getName()));
 
 		return false;
 	}
