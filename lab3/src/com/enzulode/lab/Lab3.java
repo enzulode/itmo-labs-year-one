@@ -1,6 +1,7 @@
 package com.enzulode.lab;
 
 import com.enzulode.lab.effects.SideEffects;
+import com.enzulode.lab.entities.AbstractEntity;
 import com.enzulode.lab.entities.EntityInterface;
 import com.enzulode.lab.entities.Mumitroll;
 import com.enzulode.lab.entities.Snusmumric;
@@ -18,24 +19,24 @@ public class Lab3
 		AbstractPlace forest = new Forest("Дом лешего");
 		AbstractPlace road = new Road("Скользкая дорожка");
 
-		EntityInterface snusmumric = new Snusmumric("Обалдуй");
+		AbstractEntity snusmumric = new Snusmumric("Обалдуй");
 		snusmumric.addAction("Снусмумрик сокрушённо покачал головой.");
-		EntityInterface mumitroll = new Mumitroll("Попуск");
+		AbstractEntity mumitroll = new Mumitroll("Попуск");
 		mumitroll.addAction("Идя лесом, Муми-тролль всё теснее жался к Снусмумрику.");
 
 		snusmumric.performActions();
 		mumitroll.performActions();
 
-		forest.addEntity(snusmumric);
-		forest.addEntity(mumitroll);
-
-		ScriptInterface roadEffectsScript = (new EffectScript()).addEffect(SideEffects.STEPS, SideEffects.SPOOKINESS);
-		ScriptInterface forestEffectsScript = (new EffectScript()).addEffect(SideEffects.EYES, SideEffects.CALLED);
-
-		road.addScript(roadEffectsScript);
-		forest.addScript(forestEffectsScript);
-		forest.addSubplace(road);
-		forest.run();
+//		forest.addEntity(snusmumric);
+//		forest.addEntity(mumitroll);
+//
+//		ScriptInterface roadEffectsScript = (new EffectScript()).addEffect(SideEffects.STEPS, SideEffects.SPOOKINESS);
+//		ScriptInterface forestEffectsScript = (new EffectScript()).addEffect(SideEffects.EYES, SideEffects.CALLED);
+//
+//		road.addScript(roadEffectsScript);
+//		forest.addScript(forestEffectsScript);
+//		forest.addSubplace(road);
+//		forest.run();
 	}
 
 
