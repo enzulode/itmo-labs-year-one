@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<timetable>
+    <monday>
+        <lesson lesson="Programming(LAB)">
+            <time time="11:40-13:10"/>
+            <teacher teacher="Pashnin Alexander Denisovich"/>
+            <place place="Room: 2435/3 Building: Kronverksky prospect., b. 49, lit. A"/>
+            <form form="Onsite-remote"/>
+        </lesson>
+        <lesson lesson="Programming(LAB)">
+            <time time="13:30-15:00"/>
+            <teacher teacher="Pashnin Alexander Denisovich"/>
+            <place place="Room: 2435/3 Building: Kronverksky prospect., b. 49, lit. A"/>
+            <form form="Onsite-remote"/>
+        </lesson>
+    </monday>
+</timetable>

@@ -1,0 +1,38 @@
+{
+    "timetable": {
+        "monday": {
+            "lesson": [
+                {
+                    "@lesson": "Programming(LAB)",
+                    "form": {
+                        "@form": "Onsite-remote"
+                    },
+                    "place": {
+                        "@place": "Room: 2435/3 Building: Kronverksky prospect., b. 49, lit. A"
+                    },
+                    "teacher": {
+                        "@teacher": "Pashnin Alexander Denisovich"
+                    },
+                    "time": {
+                        "@time": "11:40-13:10"
+                    }
+                },
+                {
+                    "@lesson": "Programming(LAB)",
+                    "form": {
+                        "@form": "Onsite-remote"
+                    },
+                    "place": {
+                        "@place": "Room: 2435/3 Building: Kronverksky prospect., b. 49, lit. A"
+                    },
+                    "teacher": {
+                        "@teacher": "Pashnin Alexander Denisovich"
+                    },
+                    "time": {
+                        "@time": "13:30-15:00"
+                    }
+                }
+            ]
+        }
+    }
+}
